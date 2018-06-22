@@ -43,14 +43,13 @@ export class ListaPage {
     this.productoService.deleteProduct(product);
   }
 
-  
-  showEditProduct(){
-    let modal = this.modalCtrl.create(AddProductModalPage);
+  showEditProduct(product: ProductoModel){
+    let modal = this.modalCtrl.create(AddProductModalPage, {product});
     modal.present();
 
     modal.onDidDismiss(data => {
       if(data){
-        this.productoService.editProduct(data);
+        this.productoService.updateProduct(product, data);
       }
     });
   }

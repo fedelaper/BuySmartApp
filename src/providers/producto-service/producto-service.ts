@@ -36,22 +36,13 @@ private lista: ProductoModel[];
   }
 
   deleteProduct(product: ProductoModel){
-    for(let i = 0; i < this.lista.length; i++) {
-      if(this.lista[i] == product){
-        this.lista.splice(i, 1);
-      }
-    }
+    const index = this.lista.indexOf(product);
+    this.lista.splice(index, 1);
   }
 
-  editProduct(product: ProductoModel){
-    for(let i = 0; i < this.lista.length; i++) {
-      if(this.lista[i] == product){
-        this.lista[i].importancia = product.importancia;
-        this.lista[i].nombre = product.nombre;
-        this.lista[i].precio = product.precio;
-        this.lista[i].tipo = product.tipo;
-      }
-    }
+  updateProduct(original: ProductoModel, modified: ProductoModel){
+    const index = this.lista.indexOf(original);
+    this.lista.splice(index, 1, modified);
   }
 
   addProduct(product: ProductoModel){

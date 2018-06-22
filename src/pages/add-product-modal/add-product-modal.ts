@@ -17,8 +17,15 @@ import { ProductoModel } from '../../models/product-model';
 export class AddProductModalPage {
 
   public model = new ProductoModel(null,null,null,null,null,false,new Date());
+  public title: string = "Nuevo Producto";
+  public buttonText: string = "Agregar Producto";
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {
+    if(this.navParams.get('product')){
+      this.model = ProductoModel.clone(this.navParams.get('product'));
+      this.title = "Editar Producto";
+      this.buttonText = "Modificar";
+    }
   }
 
   ionViewDidLoad() {

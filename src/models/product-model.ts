@@ -9,4 +9,10 @@ export class ProductoModel {
         public enElCarro: boolean = false,
         public fechaComprado: Date
     ) {}
+
+    static clone(product: ProductoModel){
+        return new ProductoModel(product.nombre, product.tipo, product.marca, product.importancia, 
+            product.precio, product.enElCarro, product.fechaComprado);
+    }
+
 }

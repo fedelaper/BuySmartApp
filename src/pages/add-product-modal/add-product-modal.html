@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-toolbar color="primary">
-    <ion-title style="text-align: center">Nuevo Producto</ion-title>
+    <ion-title style="text-align: center">{{title}}</ion-title>
     <ion-buttons start>
       <button ion-button (click)="dissmiss()">
         <span color="secondary" showWhen="ios, core">X</span> 
@@ -56,7 +56,7 @@
 
       <div>
         <button ion-button block type="submit"
-            [disabled]="!nombreState.valid">Agregar Producto</button>
+            [disabled]="!nombreState.valid">{{buttonText}}</button>
       </div>
 
     </form>
