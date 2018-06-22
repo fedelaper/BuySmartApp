@@ -15,7 +15,7 @@
 
 <ion-content padding class="content">
   <ion-list>
-    <ion-item-sliding *ngFor="let product of productoService.lista">
+    <ion-item-sliding *ngFor="let product of productoService.lista | importanceProductsPipe" >
 
       <ion-item [ngStyle]="setProductStyle(product)" 
           class="item">
