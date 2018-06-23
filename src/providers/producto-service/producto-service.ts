@@ -48,4 +48,5 @@ private lista: ProductoModel[];
   addProduct(product: ProductoModel){
     this.lista.push(product);
   }
+
 }

@@ -1,0 +1,35 @@
+<!--
+  Generated template for the DeleteProductModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="alert-content">
+  <ion-header>
+
+      <ion-toolbar color="primary">
+          <ion-title style="text-align: center">{{title}}</ion-title>
+          <ion-buttons start>
+            <button ion-button (click)="dissmiss()">
+              <span color="secondary" showWhen="ios, core">X</span> 
+              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <form class="container" (ngSubmit)="submit()">
+        <ion-item no-lines class="text">
+          {{text}}
+        </ion-item>
+        <div block class="buttons">
+          <button ion-button type="submit" class="yes-no">Si</button>
+          <button ion-button (click)="dissmiss()" type="button" class="yes-no">No</button>
+        </div>
+      </form>
+    </ion-list>
+  </ion-content>
+</div>

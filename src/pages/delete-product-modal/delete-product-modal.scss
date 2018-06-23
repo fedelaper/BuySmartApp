@@ -1,0 +1,28 @@
+page-delete-product-modal {
+
+    background: rgba(0, 0, 0, 0.5);
+
+    .alert-content{
+        top: 20%;
+        left: 10%;
+        position: absolute;
+        width: 80%;
+        height: 35%;
+    }
+
+    .text{
+        text-align: center;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+
+    .buttons{
+        display: block;
+        padding-left: 7%;
+    }
+
+    .yes-no{
+        width: 45%;
+    }
+
+}

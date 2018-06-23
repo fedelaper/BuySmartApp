@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { ListaPage } from '../pages/lista/lista';
 import { AddProductModalPage } from "../pages/add-product-modal/add-product-modal";
+import { DeleteProductModalPage } from "../pages/delete-product-modal/delete-product-modal"
 import { ProductoServiceProvider } from '../providers/producto-service/producto-service';
 import { ImportanceProductsPipe } from '../pipes/importance-products/importance-products';
 import { TypeProductsPipe } from '../pipes/type-products/type-products'
@@ -20,6 +21,7 @@ import { TypeProductsPipe } from '../pipes/type-products/type-products'
     MyApp,
     ListaPage,
     AddProductModalPage,
+    DeleteProductModalPage,
     ImportanceProductsPipe,
     TypeProductsPipe
   ],
@@ -33,7 +35,8 @@ import { TypeProductsPipe } from '../pipes/type-products/type-products'
   entryComponents: [
     MyApp,
     ListaPage,
-    AddProductModalPage
+    AddProductModalPage,
+    DeleteProductModalPage
   ],
   providers: [
     StatusBar,
