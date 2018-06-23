@@ -11,14 +11,17 @@ import { MyApp } from './app.component';
 import { ListaPage } from '../pages/lista/lista';
 import { AddProductModalPage } from "../pages/add-product-modal/add-product-modal";
 import { ProductoServiceProvider } from '../providers/producto-service/producto-service';
-import { ImportanceProductsPipe } from '../pipes/importance-products/importance-products'
+import { ImportanceProductsPipe } from '../pipes/importance-products/importance-products';
+import { TypeProductsPipe } from '../pipes/type-products/type-products'
+
 
 @NgModule({
   declarations: [
     MyApp,
     ListaPage,
     AddProductModalPage,
-    ImportanceProductsPipe
+    ImportanceProductsPipe,
+    TypeProductsPipe
   ],
   imports: [
     BrowserModule,
