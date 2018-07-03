@@ -10,9 +10,7 @@ import { ProductoModel } from '../../models/product-model';
   name: 'productInCartPipe'
 })
 export class ProductInCartPipe implements PipeTransform {
-  /**
-   * Takes a value and makes it lowercase.
-   */
+ 
   transform(list: ProductoModel[]) {
     return list.filter(product => product.enElCarro);
   }
