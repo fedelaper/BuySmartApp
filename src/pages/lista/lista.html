@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary" style="text-align: center">
-    <ion-title>Lista: {{nombreLista}}</ion-title>
+    <ion-title>BuySmartApp</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,12 @@
 
 <ion-content padding class="content">
   <ion-list>
+    <ion-item-divider>{{nombreLista}}</ion-item-divider>
+    <ion-item *ngIf="!(productoService.lista | importanceProductsPipe).length > 0">
+      <ion-label color="secondary">
+        [La lista esta vacia]
+      </ion-label>
+    </ion-item>
     <ion-item-sliding *ngFor="let product of productoService.lista | importanceProductsPipe" >
 
       <ion-item [ngStyle]="setProductStyle(product)" 
@@ -32,6 +38,15 @@
       </ion-item-options>
     
     </ion-item-sliding>
+
+    <ion-item-divider *ngIf="(productoService.lista | productInCartPipe).length > 0"> Productos comprados</ion-item-divider>
+    <ion-item *ngFor="let product of productoService.lista | productInCartPipe"
+        [ngStyle]="setProductStyle(product)" class="item">
+      <ion-label color="secondary" (click)="toggleProductInCart(product)">
+        {{product.nombre}}
+      </ion-label>
+    </ion-item>
+
   </ion-list>
 </ion-content>
 

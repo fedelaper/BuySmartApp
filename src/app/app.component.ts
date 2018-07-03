@@ -3,12 +3,14 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { ListaPage } from '../pages/lista/lista';
+import { TableroPage } from '../pages/tablero/tablero';
+//import { ListaPage } from '../pages/lista/lista';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ListaPage;
+  rootPage:any = TableroPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

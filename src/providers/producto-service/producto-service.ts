@@ -21,32 +21,40 @@ private lista: ProductoModel[];
   getProducts(){
     this.lista = [
       //para pruebas
-            new ProductoModel ("importancia 1", null, null, 1, null, false, null),
-            new ProductoModel ("importancia 2", null, null, 2, null, false, null),
-            new ProductoModel ("importancia 3", null, null, 3, null, false, null),
-            new ProductoModel ("importancia 1 carro", null, null, 1, null, true, null),
-            new ProductoModel ("importancia 2 carro", null, null, 2, null, true, null),
-            new ProductoModel ("importancia 3 carro", null, null, 3, null, true, null),
+            new ProductoModel ("Producto 1", null, null, 1, null, false, null),
+            new ProductoModel ("Producto 2", null, null, 2, null, false, null),
+            new ProductoModel ("Producto 3", null, null, 3, null, false, null),
+            new ProductoModel ("Producto 4 comprado", null, null, 1, null, true, null),
+            new ProductoModel ("Producto 5 comprado", null, null, 2, null, true, null),
+            new ProductoModel ("Producto 6 comprado", null, null, 3, null, true, null),
       //! para pruebas
           ];
   }
 
   toggleProductInCart(product: ProductoModel){
-    product.enElCarro = ! product.enElCarro;
+    let enElCarro = ! product.enElCarro;
+    const index = this.lista.indexOf(product);
+
+    let updatedProd = new ProductoModel(product.nombre, product.tipo, product.marca, product.importancia, 
+        product.precio, enElCarro, product.fechaComprado);
+        
+    this.lista = [...this.lista.slice(0, index), updatedProd, ...this.lista.slice(index+1)];
   }
 
   deleteProduct(product: ProductoModel){
     const index = this.lista.indexOf(product);
-    this.lista.splice(index, 1);
+    this.lista = [...this.lista.slice(0, index), ...this.lista.slice(index+1)]
   }
 
   updateProduct(original: ProductoModel, modified: ProductoModel){
     const index = this.lista.indexOf(original);
-    this.lista.splice(index, 1, modified);
+    this.lista = [...this.lista.slice(0, index), modified, ...this.lista.slice(index+1)];
   }
 
   addProduct(product: ProductoModel){
-    this.lista.push(product);
+    //Lo que hago aca ese separar cada uno de los elementos de lista y agregarle uno mas. 
+    //Todo eso despues lo asigno a la misma lista
+    this.lista = [...this.lista, product];
   }
 
 }

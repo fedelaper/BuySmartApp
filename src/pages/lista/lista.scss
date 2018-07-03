@@ -1,5 +1,22 @@
 page-lista {
     
+    h3:first-child {
+        margin-top: 0.3em !important;
+    }
+
+    ion-list{
+        .item-block .item-inner{
+            border: none !important;
+        }
+
+        .item-divider{
+            padding-top: 5px;
+            background-color: transparent;
+            color: color($colors, light);
+            font-weight: bold;
+            font-size: 120%;
+        }
+    }
 }
 
 .item{
