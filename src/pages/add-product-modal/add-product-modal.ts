@@ -17,7 +17,7 @@ import { ProductoModel } from '../../models/product-model';
 export class AddProductModalPage {
 
   public model = new ProductoModel(null,null,null,null,null,false,new Date());
-  public title: string = "Nuevo Producto";
+  public title: string = "Nueva Lista";
   public buttonText: string = "Agregar Producto";
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {

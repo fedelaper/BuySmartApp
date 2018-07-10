@@ -30,29 +30,33 @@ export class ListaServiceProvider {
           ];
   }
 
-  createListsForTest(qtty: number){
-    let i = 0;
-    for( i; i < qtty; i++){
-      new ListaModel ("Lista "+i,null,null,null,null);
-    }
+  addList(list: ListaModel){
+    let newList = new ListaModel (list.nombre, null, null, null, null);
+    this.tablero = [...this.tablero, newList];
   }
+  // createListsForTest(qtty: number){
+  //   let i = 0;
+  //   for( i; i < qtty; i++){
+  //     new ListaModel ("Lista "+i,null,null,null,null);
+  //   }
+  // }
 
-  toggleListaCompleta(lista: ListaModel){
-    lista.listaCompleta = ! lista.listaCompleta;
-  }
+  // toggleListaCompleta(lista: ListaModel){
+  //   lista.listaCompleta = ! lista.listaCompleta;
+  // }
 
-  deleteList(lista: ListaModel){
-    const index = this.tablero.indexOf(lista);
-    this.tablero.splice(index, 1);
-  }
+  // deleteList(lista: ListaModel){
+  //   const index = this.tablero.indexOf(lista);
+  //   this.tablero.splice(index, 1);
+  // }
 
-  updateList(original: ListaModel, modified: ListaModel){
-    const index = this.tablero.indexOf(original);
-    this.tablero.splice(index, 1, modified);
-  }
+  // updateList(original: ListaModel, modified: ListaModel){
+  //   const index = this.tablero.indexOf(original);
+  //   this.tablero.splice(index, 1, modified);
+  // }
 
-  addProduct(lista: ListaModel){
-    this.tablero.push(lista);
-  }
+  // addProduct(lista: ListaModel){
+  //   this.tablero.push(lista);
+  // }
 
 }

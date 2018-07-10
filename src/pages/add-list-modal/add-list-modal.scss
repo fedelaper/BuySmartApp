@@ -1,0 +1,69 @@
+page-add-list-modal {
+
+    background: rgba(0, 0, 0, 0.5);
+
+    .alert-content{
+        top: 20%;
+        left: 10%;
+        position: absolute;
+        width: 80%;
+        height: 35%;
+
+        .container{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            >*{
+                margin-bottom: 5%;
+            }
+    
+            .submit-button{
+                width: 100%;
+            }
+            
+            ion-item{
+                &.item-md-danger, &.item-ios-danger, &.item-wp-danger{
+                    background-color: transparent;
+                    color: color($colors, danger);
+                    margin-top: -7%;
+                    margin-bottom: -7%;
+                    font-size: 80%; 
+                    
+                    transition-property: opacity, visibility;
+                    transition-duration: 0.3s;
+    
+                    &[hidden]{
+                        display: block !important;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition-property: opacity, visibility;
+                        transition-duration: 0.3s;
+                        transition-delay: 0.3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .input{
+    }
+
+    .buttons{
+        display: block;
+        padding-left: 7%;
+        padding-top: 10%;
+    }
+
+    .yes-no{
+        width: 45%;
+    }
+
+    ion-title{
+        margin-left: 14% !important;
+        text-align: center;
+    }
+
+}

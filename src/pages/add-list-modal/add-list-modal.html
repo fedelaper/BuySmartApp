@@ -1,0 +1,41 @@
+<!--
+  Generated template for the AddListModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="alert-content">
+    <ion-header>
+  
+        <ion-toolbar color="primary">
+            <ion-title>{{title}}</ion-title>
+            <ion-buttons start>
+              <button ion-button (click)="dissmiss()">
+                <span color="secondary" showWhen="ios, core">X</span> 
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-toolbar>
+  
+    </ion-header>
+  
+    <ion-content>
+      <ion-list>
+        <form class="container" (ngSubmit)="submit()">
+            <ion-item no-lines>
+              <ion-input placeholder="Nombre de la Lista" clearInput
+                [(ngModel)]="model.nombre" name="nombre" required
+                #nombreState="ngModel" class="input">
+              </ion-input>
+            </ion-item>
+            <ion-item color="danger" [hidden]="nombreState.valid || nombreState.untouched" no-lines>
+              El nombre es requerido.
+            </ion-item>
+          <div block class="buttons">
+            <button ion-button type="submit" class="yes-no">Crear</button>
+            <button ion-button (click)="dissmiss()" type="button" class="yes-no">Cancelar</button>
+          </div>
+        </form>
+      </ion-list>
+    </ion-content>
+  </div>

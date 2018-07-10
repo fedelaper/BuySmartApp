@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { ListaModel } from '../../models/lista-model';
 
 import { ListaPage } from '../lista/lista';
+import { AddListModalPage } from '../add-list-modal/add-list-modal';
+
 import { ListaServiceProvider } from '../../providers/lista-service/lista-service';
 
 
@@ -37,17 +39,28 @@ export class TableroPage {
   }
 
   toggleListaCompleta(lista: ListaModel){
-    this.listaService.toggleListaCompleta(lista);
+    // this.listaService.toggleListaCompleta(lista);
   }
 
   deleteList(lista: ListaModel){
-    this.listaService.deleteList(lista);
+    // this.listaService.deleteList(lista);
   
   }
 
   showList(lista: ListaModel){
     this.navCtrl.push(ListaPage);
     //this.navCtrl.push(ListaPage, {lista});
+  }
+
+  showAddList(list: ListaModel){
+    let alert = this.modalCtrl.create(AddListModalPage);
+    alert.present();
+    alert.onDidDismiss((data) => {
+          if(data){
+            //si volvio ok del alert, creo el nuevo list con el nombre que viene.
+            this.listaService.addList(data);
+          };
+    });
   }
   
 /*
