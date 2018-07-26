@@ -17,21 +17,21 @@ export class ListaServiceProvider {
     this.getListas();
   }
 
-  getListas(){
+  private getListas(){
     this.tablero = [
       //para pruebas
-            new ListaModel ("Lista 1",null,null,null,null),
-            new ListaModel ("Lista 2",null,null,null,null),
-            new ListaModel ("Lista 3",null,null,null,null),
-            new ListaModel ("Lista 4",null,null,null,null),
-            new ListaModel ("Lista 5",null,null,null,null),
-            new ListaModel ("Lista 6",null,null,null,null),
+            new ListaModel (0,"Lista 1",null,null,null,null),
+            new ListaModel (1,"Lista 2",null,null,null,null),
+            new ListaModel (2,"Lista 3",null,null,null,null),
+            new ListaModel (3,"Lista 4",null,null,null,null),
+            new ListaModel (4,"Lista 5",null,null,null,null),
+            new ListaModel (5,"Lista 6",null,null,null,null),
       //! para pruebas
           ];
   }
-
-  addList(list: ListaModel){
-    let newList = new ListaModel (list.nombre, null, null, null, null);
+ 
+  public addList(list: ListaModel){
+    let newList = new ListaModel (null, list.nombre, null, null, null, null);
     this.tablero = [...this.tablero, newList];
   }
   // createListsForTest(qtty: number){

@@ -15,7 +15,7 @@
 
 <ion-content padding class="content">
   <ion-list>
-    <ion-item-divider>{{nombreLista}}</ion-item-divider>
+    <ion-item-divider class="mainTitle">{{nombreLista}}</ion-item-divider>
     <ion-item *ngIf="!(productoService.lista | importanceProductsPipe).length > 0">
       <ion-label color="secondary">
         [La lista esta vacia]

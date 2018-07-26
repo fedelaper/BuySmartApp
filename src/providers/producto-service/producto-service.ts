@@ -15,20 +15,33 @@ export class ProductoServiceProvider {
 private lista: ProductoModel[];
 
   constructor(public http: HttpClient) {
-    this.getProducts();
   }
 
-  getProducts(){
-    this.lista = [
-      //para pruebas
-            new ProductoModel ("Producto 1", null, null, 1, null, false, null),
-            new ProductoModel ("Producto 2", null, null, 2, null, false, null),
-            new ProductoModel ("Producto 3", null, null, 3, null, false, null),
-            new ProductoModel ("Producto 4 comprado", null, null, 1, null, true, null),
-            new ProductoModel ("Producto 5 comprado", null, null, 2, null, true, null),
-            new ProductoModel ("Producto 6 comprado", null, null, 3, null, true, null),
-      //! para pruebas
-          ];
+  public loadFromList(id: number){
+    if(id < 2){
+      this.lista = [
+        //para pruebas
+              new ProductoModel ("Producto 1", null, null, 1, null, false, null),
+              new ProductoModel ("Producto 2", null, null, 2, null, false, null),
+              new ProductoModel ("Producto 3", null, null, 3, null, false, null),
+              new ProductoModel ("Producto 4 comprado", null, null, 1, null, true, null),
+              new ProductoModel ("Producto 5 comprado", null, null, 2, null, true, null),
+              new ProductoModel ("Producto 6 comprado", null, null, 3, null, true, null),
+        //! para pruebas
+            ];
+    }else{
+      this.lista = [
+        //para pruebas
+              new ProductoModel ("Producto 10", null, null, 1, null, false, null),
+              new ProductoModel ("Producto 20", null, null, 2, null, false, null),
+              new ProductoModel ("Producto 30", null, null, 3, null, false, null),
+              new ProductoModel ("Producto 40 comprado", null, null, 1, null, true, null),
+              new ProductoModel ("Producto 50 comprado", null, null, 2, null, true, null),
+              new ProductoModel ("Producto 60 comprado", null, null, 3, null, true, null),
+        //! para pruebas
+            ];
+    }
+    
   }
 
   toggleProductInCart(product: ProductoModel){

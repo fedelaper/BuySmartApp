@@ -17,7 +17,7 @@ import { ListaPage } from '../lista/lista';
 })
 export class AddListModalPage {
 
-  public model = new ListaModel(null,null,null,null,new Date());
+  public model = new ListaModel(null, null,null,null,null,new Date());
   public title: string = "Nueva Lista";
 
   constructor(

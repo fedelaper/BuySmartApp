@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-import { ProductoModel } from "../../models/product-model"
-import { AddProductModalPage } from "../add-product-modal/add-product-modal"
-import { DeleteProductModalPage } from "../delete-product-modal/delete-product-modal"
+import { ProductoModel } from "../../models/product-model";
+import { ListaModel } from "../../models/lista-model";
+
+import { AddProductModalPage } from "../add-product-modal/add-product-modal";
+import { DeleteProductModalPage } from "../delete-product-modal/delete-product-modal";
+
 import { ProductoServiceProvider } from '../../providers/producto-service/producto-service';
 /**
  * Generated class for the ListaPage page.
@@ -27,15 +30,23 @@ export class ListaPage {
 
   public nombreLista: string;
 
+  private lista: ListaModel;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public modalCtrl: ModalController, 
     public productoService: ProductoServiceProvider) {
 
-      //ver como cambiar esto dinamicamente segun la lista seleccionada
-      this.nombreLista = "Lista 1";
+      this.lista = this.navParams.get('lista');
 
+      if(this.lista.nombre){
+        this.nombreLista = this.lista.nombre;
+      }else{
+        this.nombreLista = "null";
+      }
+      
+      this.productoService.loadFromList(this.lista.id);
     }
 
   ionViewDidLoad() {}

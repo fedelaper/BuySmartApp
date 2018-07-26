@@ -33,12 +33,8 @@
       
       </ion-item-sliding>
     -->
-      <ion-item (click)="showList()">Lista Uno</ion-item>
-      <ion-item (click)="showList()">Lista dos</ion-item>
-      <ion-item (click)="showList()">Lista tres</ion-item>
-      <ion-item (click)="showList()">Lista cuatro</ion-item>
-      <ion-item (click)="showList()">Lista cinco</ion-item>
-      <ion-item (click)="showList()">Lista seis</ion-item>
+      <ion-item *ngFor="let list of listaService.tablero" (click)="showList(list)">{{list.nombre}}</ion-item>
+      
     </ion-list>
   </ion-content>
   

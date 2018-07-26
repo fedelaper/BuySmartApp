@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+
 import { ListaModel } from '../../models/lista-model';
 
 import { ListaPage } from '../lista/lista';
@@ -48,8 +49,12 @@ export class TableroPage {
   }
 
   showList(lista: ListaModel){
-    this.navCtrl.push(ListaPage);
-    //this.navCtrl.push(ListaPage, {lista});
+    //this.navCtrl.push(ListaPage);
+    this.navCtrl.push(ListaPage, {lista});
+  }
+
+  addNewList(data){
+    this.listaService.addList(data);
   }
 
   showAddList(list: ListaModel){
@@ -58,7 +63,7 @@ export class TableroPage {
     alert.onDidDismiss((data) => {
           if(data){
             //si volvio ok del alert, creo el nuevo list con el nombre que viene.
-            this.listaService.addList(data);
+            this.addNewList(data);
           };
     });
   }
