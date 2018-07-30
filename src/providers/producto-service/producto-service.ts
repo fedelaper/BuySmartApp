@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Storage } from '@ionic/storage'
+
 import { ProductoModel } from '../../models/product-model';
 
 /*
@@ -12,36 +14,39 @@ import { ProductoModel } from '../../models/product-model';
 @Injectable()
 export class ProductoServiceProvider {
 
-private lista: ProductoModel[];
+private lista: ProductoModel[] = [];
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public localStorage: Storage) {
   }
 
   public loadFromList(id: number){
-    if(id < 2){
-      this.lista = [
-        //para pruebas
-              new ProductoModel ("Producto 1", null, null, 1, null, false, null),
-              new ProductoModel ("Producto 2", null, null, 2, null, false, null),
-              new ProductoModel ("Producto 3", null, null, 3, null, false, null),
-              new ProductoModel ("Producto 4 comprado", null, null, 1, null, true, null),
-              new ProductoModel ("Producto 5 comprado", null, null, 2, null, true, null),
-              new ProductoModel ("Producto 6 comprado", null, null, 3, null, true, null),
-        //! para pruebas
-            ];
-    }else{
-      this.lista = [
-        //para pruebas
-              new ProductoModel ("Producto 10", null, null, 1, null, false, null),
-              new ProductoModel ("Producto 20", null, null, 2, null, false, null),
-              new ProductoModel ("Producto 30", null, null, 3, null, false, null),
-              new ProductoModel ("Producto 40 comprado", null, null, 1, null, true, null),
-              new ProductoModel ("Producto 50 comprado", null, null, 2, null, true, null),
-              new ProductoModel ("Producto 60 comprado", null, null, 3, null, true, null),
-        //! para pruebas
-            ];
-    }
-    
+    this.getFromLocalStorage(id);
+  }
+
+  public getFromLocalStorage(id: number){
+    this.localStorage.ready().then(()=>{
+      this.localStorage.get(`lista/${id}`).then(
+        data => {
+          if(!data){
+            this.lista = [];
+            return;
+          }
+
+          let storedList: ProductoModel[] = [];
+          for(let product of data){
+            storedList.push(new ProductoModel (product.nombre, product.tipo, product.marca, product.importancia,
+                product.precio, product.enElCarro, product.fechaComprado));
+          }
+          this.lista = storedList;
+        }
+      )
+    })
+  }
+
+  public saveToLocalStorage(id: number){
+    this.localStorage.ready().then(()=>{
+      this.localStorage.set(`lista/${id}`, this.lista);
+    })
   }
 
   toggleProductInCart(product: ProductoModel){

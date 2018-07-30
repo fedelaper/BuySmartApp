@@ -54,7 +54,9 @@ export class TableroPage {
   }
 
   addNewList(data){
-    this.listaService.addList(data);
+    let newList = this.listaService.addList(data);
+    this.listaService.saveInLocalStorage();
+    this.showList(newList);
   }
 
   showAddList(list: ListaModel){

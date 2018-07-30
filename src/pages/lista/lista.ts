@@ -51,6 +51,10 @@ export class ListaPage {
 
   ionViewDidLoad() {}
 
+  ionViewWillUnload(){
+    this.productoService.saveToLocalStorage(this.lista.id);
+  }
+
   setProductStyle(product: ProductoModel){
     let styles = {
       'text-decoration': product.enElCarro ? 'line-through' : 'none' ,
